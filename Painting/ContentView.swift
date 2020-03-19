@@ -14,6 +14,7 @@ struct ContentView: View {
         ZStack(alignment: .leading){
            // Image("fuchico").resizable().scaledToFill().frame(width: UIScreen.main.bounds.width*2/3,height: UIScreen.main.bounds.height*2/5)
             
+            
             Group{
                 //裙子顏色
                 Path{(dress) in
@@ -149,8 +150,8 @@ struct ContentView: View {
                 arm.addQuadCurve(to: CGPoint(x:346 ,y:274), control: CGPoint(x:341,y:282))
                 arm.addQuadCurve(to: CGPoint(x:352 ,y:272), control: CGPoint(x:354,y:304))//
                 arm.addQuadCurve(to: CGPoint(x:340 ,y:254), control: CGPoint(x:352,y:267))
-                arm.addQuadCurve(to: CGPoint(x:317 ,y:210), control: CGPoint(x:327,y:223))
-                arm.move(to: CGPoint(x:323,y:216))
+                arm.addQuadCurve(to: CGPoint(x:323,y:216), control: CGPoint(x:324,y:223))
+                //arm.move(to: CGPoint(x:323,y:216))
                 arm.addQuadCurve(to: CGPoint(x:323 ,y:211), control: CGPoint(x:319,y:219))
                 arm.addQuadCurve(to: CGPoint(x:316 ,y:182), control: CGPoint(x:329,y:210))
                 arm.addQuadCurve(to: CGPoint(x:325 ,y:145), control: CGPoint(x:315,y:159))
@@ -175,7 +176,7 @@ struct ContentView: View {
                 arm.addQuadCurve(to: CGPoint(x:325 ,y:145), control: CGPoint(x:315,y:159))
                 arm.addQuadCurve(to: CGPoint(x:312 ,y:139), control: CGPoint(x:320,y:140))
             }.stroke(Color(red: 0.224, green: 0.224, blue: 0.223),lineWidth: 1.3).offset(x: -120, y: 228)
-            
+                
 
                 
             }
@@ -188,6 +189,7 @@ struct ContentView: View {
             
             
             Group{
+                
             Path{(face) in
             face.move(to: CGPoint(x:335,y:111))
             face.addQuadCurve(to: CGPoint(x:380 ,y:88), control: CGPoint(x:363,y:143))//下巴
@@ -281,6 +283,7 @@ struct ContentView: View {
                 hair.addQuadCurve(to: CGPoint(x:376,y:102), control: CGPoint(x:386,y:100))
             }.fill(Color(red: 0.224, green: 0.224, blue: 0.223)).offset(x: -120, y: 228)
             }
+            
         }
     }
 }
