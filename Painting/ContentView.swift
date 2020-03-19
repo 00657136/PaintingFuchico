@@ -12,43 +12,52 @@ struct ContentView: View {
     
     var body: some View {
         ZStack(alignment: .leading){
-           // Image("fuchico").resizable().scaledToFill().frame(width: UIScreen.main.bounds.width*2/3,height: UIScreen.main.bounds.height*2/5)
+            Image("fuchico").resizable().scaledToFill().frame(width: UIScreen.main.bounds.width*2/3,height: UIScreen.main.bounds.height*2/5)
             
             
             Group{
+                //腿
+                Path{(leg) in
+                    leg.move(to: CGPoint(x:290,y:361))
+                    leg.addQuadCurve(to: CGPoint(x:337 ,y:316), control: CGPoint(x:309,y:290))
+                    leg.addQuadCurve(to: CGPoint(x:327 ,y:338), control: CGPoint(x:329,y:329))
+                    leg.addQuadCurve(to: CGPoint(x:324 ,y:360), control: CGPoint(x:329,y:352))
+                    leg.addQuadCurve(to: CGPoint(x:335 ,y:344), control: CGPoint(x:331,y:343))
+                    leg.addQuadCurve(to: CGPoint(x:375 ,y:331), control: CGPoint(x:343,y:260))
+                }.stroke(Color(red: 0.224, green: 1, blue: 1),lineWidth: 1.3).offset(x: -120, y: 228)
                 //裙子顏色
-                Path{(dress) in
-                    dress.move(to: CGPoint(x:325,y:145))
-                    dress.addQuadCurve(to: CGPoint(x:337 ,y:144), control: CGPoint(x:332,y:147))
-                    dress.addQuadCurve(to: CGPoint(x:381 ,y:138), control: CGPoint(x:345,y:169))
-                    dress.addQuadCurve(to: CGPoint(x:400 ,y:136), control: CGPoint(x:393,y:133))//左手點
-                    dress.addQuadCurve(to: CGPoint(x:383 ,y:212), control: CGPoint(x:387,y:150))//左手點
-                    dress.addQuadCurve(to: CGPoint(x:395 ,y:231), control: CGPoint(x:387,y:227))//左手點
-                    dress.addQuadCurve(to: CGPoint(x:410 ,y:275), control: CGPoint(x:405,y:233))//屁股
-                    dress.addQuadCurve(to: CGPoint(x:443 ,y:277), control: CGPoint(x:438,y:261))
-                    dress.addQuadCurve(to: CGPoint(x:445 ,y:296), control: CGPoint(x:441,y:288))
-                    dress.addQuadCurve(to: CGPoint(x:462 ,y:310), control: CGPoint(x:462,y:290))
-                    dress.addQuadCurve(to: CGPoint(x:482 ,y:319), control: CGPoint(x:481,y:301))
-                    dress.addQuadCurve(to: CGPoint(x:465 ,y:316), control: CGPoint(x:471,y:319))
-                    dress.addQuadCurve(to: CGPoint(x:438 ,y:361), control: CGPoint(x:451,y:339))
-                    dress.addQuadCurve(to: CGPoint(x:389 ,y:361), control: CGPoint(x:429,y:361))
-                    dress.addQuadCurve(to: CGPoint(x:385 ,y:349), control: CGPoint(x:387,y:355))
-                    dress.addQuadCurve(to: CGPoint(x:374 ,y:328), control: CGPoint(x:363,y:355))
-                    dress.addQuadCurve(to: CGPoint(x:339 ,y:329), control: CGPoint(x:367,y:310))
-                    dress.addQuadCurve(to: CGPoint(x:337 ,y:314), control: CGPoint(x:335,y:322))
-                    dress.addQuadCurve(to: CGPoint(x:281 ,y:353), control: CGPoint(x:311,y:294))
-                    dress.addQuadCurve(to: CGPoint(x:280 ,y:361), control: CGPoint(x:291,y:349))
-                    dress.addQuadCurve(to: CGPoint(x:246 ,y:361), control: CGPoint(x:263,y:361))
-                    dress.addQuadCurve(to: CGPoint(x:227 ,y:319), control: CGPoint(x:231,y:357))
-                    dress.addQuadCurve(to: CGPoint(x:257 ,y:294), control: CGPoint(x:245,y:308))
-                    dress.addQuadCurve(to: CGPoint(x:274 ,y:293), control: CGPoint(x:269,y:288))
-                    dress.addQuadCurve(to: CGPoint(x:282 ,y:274), control: CGPoint(x:283,y:280))
-                    dress.addQuadCurve(to: CGPoint(x:303 ,y:273), control: CGPoint(x:297,y:268))
-                    dress.addQuadCurve(to: CGPoint(x:324 ,y:238), control: CGPoint(x:310,y:239))
-                    dress.addQuadCurve(to: CGPoint(x:323 ,y:211), control: CGPoint(x:319,y:219))//右手點
-                    dress.addQuadCurve(to: CGPoint(x:316 ,y:182), control: CGPoint(x:329,y:210))//右手點
-                    dress.addQuadCurve(to: CGPoint(x:325 ,y:145), control: CGPoint(x:315,y:159))
-                }.fill(Color(red: 0.924, green: 0.303, blue: 0.291)).offset(x: -120, y: 228)
+//                Path{(dress) in
+//                    dress.move(to: CGPoint(x:325,y:145))
+//                    dress.addQuadCurve(to: CGPoint(x:337 ,y:144), control: CGPoint(x:332,y:147))
+//                    dress.addQuadCurve(to: CGPoint(x:381 ,y:138), control: CGPoint(x:345,y:169))
+//                    dress.addQuadCurve(to: CGPoint(x:400 ,y:136), control: CGPoint(x:393,y:133))//左手點
+//                    dress.addQuadCurve(to: CGPoint(x:383 ,y:212), control: CGPoint(x:387,y:150))//左手點
+//                    dress.addQuadCurve(to: CGPoint(x:395 ,y:231), control: CGPoint(x:387,y:227))//左手點
+//                    dress.addQuadCurve(to: CGPoint(x:410 ,y:275), control: CGPoint(x:405,y:233))//屁股
+//                    dress.addQuadCurve(to: CGPoint(x:443 ,y:277), control: CGPoint(x:438,y:261))
+//                    dress.addQuadCurve(to: CGPoint(x:445 ,y:296), control: CGPoint(x:441,y:288))
+//                    dress.addQuadCurve(to: CGPoint(x:462 ,y:310), control: CGPoint(x:462,y:290))
+//                    dress.addQuadCurve(to: CGPoint(x:482 ,y:319), control: CGPoint(x:481,y:301))
+//                    dress.addQuadCurve(to: CGPoint(x:465 ,y:316), control: CGPoint(x:471,y:319))
+//                    dress.addQuadCurve(to: CGPoint(x:438 ,y:361), control: CGPoint(x:451,y:339))
+//                    dress.addQuadCurve(to: CGPoint(x:389 ,y:361), control: CGPoint(x:429,y:361))
+//                    dress.addQuadCurve(to: CGPoint(x:385 ,y:349), control: CGPoint(x:387,y:355))
+//                    dress.addQuadCurve(to: CGPoint(x:374 ,y:328), control: CGPoint(x:363,y:355))
+//                    dress.addQuadCurve(to: CGPoint(x:339 ,y:329), control: CGPoint(x:367,y:310))
+//                    dress.addQuadCurve(to: CGPoint(x:337 ,y:314), control: CGPoint(x:335,y:322))
+//                    dress.addQuadCurve(to: CGPoint(x:281 ,y:353), control: CGPoint(x:311,y:294))
+//                    dress.addQuadCurve(to: CGPoint(x:280 ,y:361), control: CGPoint(x:291,y:349))
+//                    dress.addQuadCurve(to: CGPoint(x:246 ,y:361), control: CGPoint(x:263,y:361))
+//                    dress.addQuadCurve(to: CGPoint(x:227 ,y:319), control: CGPoint(x:231,y:357))
+//                    dress.addQuadCurve(to: CGPoint(x:257 ,y:294), control: CGPoint(x:245,y:308))
+//                    dress.addQuadCurve(to: CGPoint(x:274 ,y:293), control: CGPoint(x:269,y:288))
+//                    dress.addQuadCurve(to: CGPoint(x:282 ,y:274), control: CGPoint(x:283,y:280))
+//                    dress.addQuadCurve(to: CGPoint(x:303 ,y:273), control: CGPoint(x:297,y:268))
+//                    dress.addQuadCurve(to: CGPoint(x:324 ,y:238), control: CGPoint(x:310,y:239))
+//                    dress.addQuadCurve(to: CGPoint(x:323 ,y:211), control: CGPoint(x:319,y:219))//右手點
+//                    dress.addQuadCurve(to: CGPoint(x:316 ,y:182), control: CGPoint(x:329,y:210))//右手點
+//                    dress.addQuadCurve(to: CGPoint(x:325 ,y:145), control: CGPoint(x:315,y:159))
+//                }.fill(Color(red: 0.924, green: 0.303, blue: 0.291)).offset(x: -120, y: 228)
                 //裙子輪廓
             Path{(dress) in
                 dress.move(to: CGPoint(x:325,y:145))
@@ -110,6 +119,23 @@ struct ContentView: View {
             
             
             Group{
+            //脖子輪廓
+            Path{(neck) in
+                neck.move(to: CGPoint(x:337 ,y:144))
+                neck.addQuadCurve(to: CGPoint(x:381 ,y:138), control: CGPoint(x:345,y:169))
+                neck.addQuadCurve(to: CGPoint(x:368 ,y:115), control: CGPoint(x:365,y:140))
+                neck.addQuadCurve(to: CGPoint(x:346 ,y:121), control: CGPoint(x:355,y:126))
+                neck.addQuadCurve(to: CGPoint(x:337 ,y:144), control: CGPoint(x:350,y:131))
+            }.fill(Color(red: 0.998, green: 0.939, blue: 0.897)).offset(x: -120, y: 228)
+            //脖子輪廓
+            Path{(neck) in
+                neck.move(to: CGPoint(x:337 ,y:144))
+                neck.addQuadCurve(to: CGPoint(x:381 ,y:138), control: CGPoint(x:345,y:169))
+                neck.addQuadCurve(to: CGPoint(x:368 ,y:115), control: CGPoint(x:365,y:140))
+                neck.addQuadCurve(to: CGPoint(x:346 ,y:121), control: CGPoint(x:355,y:126))
+                neck.addQuadCurve(to: CGPoint(x:337 ,y:144), control: CGPoint(x:350,y:131))
+            }.stroke(Color(red: 0.224, green: 0.224, blue: 0.223),lineWidth: 1.3).offset(x: -120, y: 228)
+                
             //左手皮膚
             Path{(arm) in
                 arm.move(to: CGPoint(x:400 ,y:136))
