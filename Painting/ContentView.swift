@@ -10,12 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var R = [0.924,30/255,0.58,0.972]//草莓紅,道奇藍,湖水綠,檸檬黃
-    @State private var G = [0.303,144/255,0.923,0.883]
-    @State private var B = [0.291,255/255,0.888,0.129]
-    @State private var DressR : Double = 0.924
-    @State private var DressG : Double = 0.303
-    @State private var DressB : Double = 0.291
+    @State private var R = [0.924,30.0/255,0.58,0.972]//草莓紅,道奇藍,湖水綠,檸檬黃
+    @State private var G = [0.303,144.0/255,0.923,0.883]
+    @State private var B = [0.291,255.0/255,0.888,0.129]
     @State private var PutOnGlasses = false
     @State private var PutOnHeadphone = false
     @State private var PutOnMask = false
@@ -415,13 +412,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct DressPickerView: View {
-//    @State var R = [0.924,30/255,0.58,0.972]
-//    @State var G = [0.303,144/255,0.923,0.883]
-//    @State var B = [0.291,255/255,0.888,0.129]
     var DressColor = ["草莓紅","道奇藍","湖水綠","檸檬黃"]
-//    @Binding var dressR : Double
-//    @Binding var dressG : Double
-//    @Binding var dressB : Double
     @Binding var selectDress : Int
     var body: some View {
         HStack{
