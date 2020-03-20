@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var DressColor = ["草莓紅","道奇藍","湖水綠","檸檬黃"]
-    @State private var DressR : Double = 0.924 //= [0.924,30/255,0.58,0.972]
-    @State private var DressG : Double = 0.303 //= [0.303,144/255,0.923,0.883]
-    @State private var DressB : Double = 0.291 //= [0.291,255/255,0.888,0.129]
+
+    @State private var R = [0.924,30/255,0.58,0.972]//草莓紅,道奇藍,湖水綠,檸檬黃
+    @State private var G = [0.303,144/255,0.923,0.883]
+    @State private var B = [0.291,255/255,0.888,0.129]
+    @State private var DressR : Double = 0.924
+    @State private var DressG : Double = 0.303
+    @State private var DressB : Double = 0.291
     @State private var PutOnGlasses = false
     @State private var PutOnHeadphone = false
     @State private var PutOnMask = false
@@ -23,7 +26,8 @@ struct ContentView: View {
         ZStack(alignment: .leading){
             //Image("fuchico").resizable().scaledToFill().frame(width: UIScreen.main.bounds.width*2/3,height: UIScreen.main.bounds.height*2/5)
             Image("sofa").resizable().scaledToFill().frame(minWidth: 0, maxWidth: .infinity)
-            //Image("wine").resizable().scaledToFill().frame(width:700,height: 400).offset(x: 0, y: 235)
+
+
             
             Group{
             
@@ -53,6 +57,9 @@ struct ContentView: View {
                     leg.addQuadCurve(to: CGPoint(x:290 ,y:361), control: CGPoint(x:300,y:361))
                 }.stroke(Color(red: 0.224, green: 0.224, blue: 0.223),lineWidth: 1.3)
                 
+                //*********************************
+                //*********************************
+                //*********************************
                 //裙子顏色
                 Path{(dress) in
                     dress.move(to: CGPoint(x:325,y:145))
@@ -85,7 +92,14 @@ struct ContentView: View {
                     dress.addQuadCurve(to: CGPoint(x:323 ,y:211), control: CGPoint(x:319,y:219))//右手點
                     dress.addQuadCurve(to: CGPoint(x:316 ,y:182), control: CGPoint(x:329,y:210))//右手點
                     dress.addQuadCurve(to: CGPoint(x:325 ,y:145), control: CGPoint(x:315,y:159))
-                }.fill(Color(red: DressR, green: DressG, blue: DressB))
+                }.fill(Color(red: R[SelectDress], green: G[SelectDress], blue: B[SelectDress]))
+                //????????????????????????????????
+                //*********************************
+                //*********************************
+                //*********************************
+                
+                
+                
                 //裙子輪廓
             Path{(dress) in
                 dress.move(to: CGPoint(x:325,y:145))
@@ -147,7 +161,7 @@ struct ContentView: View {
             
             
             Group{
-            //脖子輪廓
+            //脖子皮膚
             Path{(neck) in
                 neck.move(to: CGPoint(x:337 ,y:144))
                 neck.addQuadCurve(to: CGPoint(x:381 ,y:138), control: CGPoint(x:345,y:169))
@@ -239,7 +253,7 @@ struct ContentView: View {
             Path{(hair) in
                 hair.addArc(center: CGPoint(x:328,y:127),radius:18,startAngle:.degrees(0), endAngle:.degrees(360), clockwise:false)
                 hair.addArc(center: CGPoint(x:383,y:120),radius:17,startAngle:.degrees(0), endAngle:.degrees(360), clockwise:false)
-            }.fill(Color(red: 0.224, green: 0.224, blue: 0.223))
+            }.fill(Color(red: 0.312, green: 0.249, blue: 0.215))
             
             
             Group{
@@ -318,14 +332,14 @@ struct ContentView: View {
                 hair.addQuadCurve(to: CGPoint(x:321,y:86), control: CGPoint(x:362,y:81))
                 hair.move(to: CGPoint(x:371,y:46))
                 hair.addQuadCurve(to: CGPoint(x:382,y:99), control: CGPoint(x:402,y:59))
-            }.fill(Color(red: 0.224, green: 0.224, blue: 0.223))
+            }.fill(Color(red: 0.312, green: 0.249, blue: 0.215))
             Path{(hair) in
                 hair.move(to: CGPoint(x:370,y:45))
                 hair.addQuadCurve(to: CGPoint(x:323,y:93), control: CGPoint(x:312,y:32))
                 hair.move(to: CGPoint(x:371,y:46))
                 hair.addQuadCurve(to: CGPoint(x:330,y:50), control: CGPoint(x:349,y:31))
                 hair.addQuadCurve(to: CGPoint(x:323,y:93), control: CGPoint(x:316,y:65))
-            }.fill(Color(red: 0.224, green: 0.224, blue: 0.223))
+            }.fill(Color(red: 0.312, green: 0.249, blue: 0.215))
             Path{(hair) in
                 hair.move(to: CGPoint(x:325,y:71))
                 hair.addQuadCurve(to: CGPoint(x:332,y:105), control: CGPoint(x:315,y:89))
@@ -335,11 +349,13 @@ struct ContentView: View {
                 hair.addQuadCurve(to: CGPoint(x:383,y:89), control: CGPoint(x:363,y:71))
                 hair.move(to: CGPoint(x:380,y:89))
                 hair.addQuadCurve(to: CGPoint(x:376,y:102), control: CGPoint(x:386,y:100))
-            }.fill(Color(red: 0.224, green: 0.224, blue: 0.223))
+            }.fill(Color(red: 0.312, green: 0.249, blue: 0.215))
             }
                 
                 Group{
+                    
             if PutOnMask{
+            
             Image("mask").resizable().scaledToFit().frame(width:60,height: 100).offset(x: 323, y: -296)
                     }
             if PutOnGlasses{
@@ -376,15 +392,12 @@ struct ContentView: View {
                         Toggle("項鍊",isOn: $PutOnNecklace)
                     }
                     }
+
                     
-//                    Section(header: Text("顏色").font(.body)){
-//                        Picker(selection: $SelectDress,label: Text("選擇背景")) {
-//                            ForEach(0..<3) { (index) in
-//                               Text(self.DressColor[index])
-//                            }
-//
-//                        }//.pickerStyle(SegmentedPickerStyle())
-//                    }
+                    Section(header: Text("顏色").font(.body)){
+                        DressPickerView(selectDress: $SelectDress)
+
+                    }
                     
                     
                 }.frame(width: UIScreen.main.bounds.width, height: 180).offset(x: 0, y: 280)
@@ -398,5 +411,29 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct DressPickerView: View {
+//    @State var R = [0.924,30/255,0.58,0.972]
+//    @State var G = [0.303,144/255,0.923,0.883]
+//    @State var B = [0.291,255/255,0.888,0.129]
+    var DressColor = ["草莓紅","道奇藍","湖水綠","檸檬黃"]
+//    @Binding var dressR : Double
+//    @Binding var dressG : Double
+//    @Binding var dressB : Double
+    @Binding var selectDress : Int
+    var body: some View {
+        HStack{
+            Image("dress").resizable().scaledToFit().frame(width: UIScreen.main.bounds.width/12)
+            Picker(selection: $selectDress,label: Text("選擇顏色")) {
+                ForEach(0..<4) { (index) in
+                    Text(self.DressColor[index])
+                    
+                }
+                
+            }.pickerStyle(SegmentedPickerStyle()).frame(width: UIScreen.main.bounds.width*10/12)
+
+        }
     }
 }
