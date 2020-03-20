@@ -13,6 +13,9 @@ struct ContentView: View {
     @State private var R = [0.924,30.0/255,0.58,0.972]//草莓紅,道奇藍,湖水綠,檸檬黃
     @State private var G = [0.303,144.0/255,0.923,0.883]
     @State private var B = [0.291,255.0/255,0.888,0.129]
+    @State private var HairR = [0.312,0.724,0.427,0.222]//奶茶棕,莓果紅,亞麻綠,霧灰藍
+    @State private var HairG = [0.249,0.33,0.472,0.232]
+    @State private var HairB = [0.215,0.351,0.402,0.312]
     @State private var PutOnGlasses = false
     @State private var PutOnHeadphone = false
     @State private var PutOnMask = false
@@ -250,7 +253,7 @@ struct ContentView: View {
             Path{(hair) in
                 hair.addArc(center: CGPoint(x:328,y:127),radius:18,startAngle:.degrees(0), endAngle:.degrees(360), clockwise:false)
                 hair.addArc(center: CGPoint(x:383,y:120),radius:17,startAngle:.degrees(0), endAngle:.degrees(360), clockwise:false)
-            }.fill(Color(red: 0.312, green: 0.249, blue: 0.215))
+            }.fill(Color(red: HairR[SelectHair], green: HairG[SelectHair], blue: HairB[SelectHair]))
             
             
             Group{
@@ -329,14 +332,14 @@ struct ContentView: View {
                 hair.addQuadCurve(to: CGPoint(x:321,y:86), control: CGPoint(x:362,y:81))
                 hair.move(to: CGPoint(x:371,y:46))
                 hair.addQuadCurve(to: CGPoint(x:382,y:99), control: CGPoint(x:402,y:59))
-            }.fill(Color(red: 0.312, green: 0.249, blue: 0.215))
+            }.fill(Color(red: HairR[SelectHair], green: HairG[SelectHair], blue: HairB[SelectHair]))
             Path{(hair) in
                 hair.move(to: CGPoint(x:370,y:45))
                 hair.addQuadCurve(to: CGPoint(x:323,y:93), control: CGPoint(x:312,y:32))
                 hair.move(to: CGPoint(x:371,y:46))
                 hair.addQuadCurve(to: CGPoint(x:330,y:50), control: CGPoint(x:349,y:31))
                 hair.addQuadCurve(to: CGPoint(x:323,y:93), control: CGPoint(x:316,y:65))
-            }.fill(Color(red: 0.312, green: 0.249, blue: 0.215))
+            }.fill(Color(red: HairR[SelectHair], green: HairG[SelectHair], blue: HairB[SelectHair]))
             Path{(hair) in
                 hair.move(to: CGPoint(x:325,y:71))
                 hair.addQuadCurve(to: CGPoint(x:332,y:105), control: CGPoint(x:315,y:89))
@@ -346,7 +349,7 @@ struct ContentView: View {
                 hair.addQuadCurve(to: CGPoint(x:383,y:89), control: CGPoint(x:363,y:71))
                 hair.move(to: CGPoint(x:380,y:89))
                 hair.addQuadCurve(to: CGPoint(x:376,y:102), control: CGPoint(x:386,y:100))
-            }.fill(Color(red: 0.312, green: 0.249, blue: 0.215))
+            }.fill(Color(red: HairR[SelectHair], green: HairG[SelectHair], blue: HairB[SelectHair]))
             }
                 
                 Group{
@@ -393,6 +396,7 @@ struct ContentView: View {
                     
                     Section(header: Text("顏色").font(.body)){
                         DressPickerView(selectDress: $SelectDress)
+                        HairPickerView(selectHair: $SelectHair)
 
                     }
                     
@@ -420,6 +424,24 @@ struct DressPickerView: View {
             Picker(selection: $selectDress,label: Text("選擇顏色")) {
                 ForEach(0..<4) { (index) in
                     Text(self.DressColor[index])
+                    
+                }
+                
+            }.pickerStyle(SegmentedPickerStyle()).frame(width: UIScreen.main.bounds.width*10/12)
+
+        }
+    }
+}
+
+struct HairPickerView: View {
+    var HairColor = ["奶茶棕","莓果紅","亞麻綠","霧灰藍"]
+    @Binding var selectHair : Int
+    var body: some View {
+        HStack{
+            Image("head").resizable().scaledToFit().frame(width: UIScreen.main.bounds.width/12)
+            Picker(selection: $selectHair,label: Text("選擇顏色")) {
+                ForEach(0..<4) { (index) in
+                    Text(self.HairColor[index])
                     
                 }
                 
